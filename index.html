@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chosen Palette: Cool Gray & Indigo -->
+    <!-- Application Structure Plan: A single-page application (SPA) with all content sections (Tutorials, Manuals, Exercises) displayed sequentially, allowing users to scroll through all information. Manuals and Exercises are separated into distinct sections. A footer has been added for copyright information. This structure was chosen for simplicity and direct access to all content without requiring tab navigation. -->
+    <!-- Visualization & Content Choices: No interactive visualizations are used in this version. Content is presented via static text and links within a scrollable single page. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>Maca 500Z: Tutoriais e Suporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        .info-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #4f46e5;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div id="app" class="min-h-screen flex flex-col">
+        <header class="bg-white shadow-sm sticky top-0 z-10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center py-4">
+                    <div class="text-center w-full">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600">Maca 500Z</h1>
+                        <p class="text-sm sm:text-base text-slate-500">Tutoriais e Suporte Técnico</p>
+                    </div>
+                    <!-- Navigation tabs removed for single-page layout -->
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+            <div id="tutorials" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-indigo-700">Vídeos Tutoriais</h2>
+                    <p class="text-slate-500 mt-2 max-w-2xl mx-auto">Acesse guias em vídeo para aprender sobre a operação, manutenção e solução de problemas da Maca 500Z.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">PARTE 01 - Introdução</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Visão geral da Maca 500Z e seus principais componentes.</p>
+                        <a href="https://youtu.be/BORrTIhuUBA" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">▷ Assistir</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">PARTE 02 - Operação Básica</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Como operar os controles principais da maca.</p>
+                        <a href="https://youtu.be/_4I8E_fDyP0" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">▷ Assistir</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">PARTE 03 - Manutenção</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Procedimentos básicos de manutenção preventiva.</p>
+                        <a href="https://youtu.be/4t8EzL3OeYs" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">▷ Assistir</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">PARTE 04 - Solução de Problemas</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Identificação e correção de problemas comuns.</p>
+                        <a href="https://youtu.be/K_5T1HBp5GA" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">▷ Assistir</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Modelo Antigo - Comparativo</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Diferenças entre a versão atual e o modelo anterior.</p>
+                        <a href="https://youtu.be/XJ49gHVwxys" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">▷ Assistir</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="manuals" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-indigo-700">Manuais Técnicos</h2>
+                    <p class="text-slate-500 mt-2 max-w-2xl mx-auto">Consulte a documentação técnica para operação e manutenção do equipamento.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Manual do Usuário Maca 500Z</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Manual completo de operação e manutenção.</p>
+                        <a href="https://drive.google.com/file/d/16bk5az8Tr0Xoy05k7cR9xwxOkoe3ca1s/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Documento</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Lubrificação Preventiva</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Procedimento completo para lubrificação da Maca 500Z.</p>
+                        <a href="https://drive.google.com/file/d/1PYg55igAnfoR9OnGgvfQWvJmV5USE6zS/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Documento</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Manual Tração Cervical</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Instruções para uso do sistema de tração cervical.</p>
+                        <a href="https://drive.google.com/file/d/1ItLxEssNrF0OpvFA5BSfMbgfJ_0s8N5J/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Documento</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="exercises" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-indigo-700">Guias de Exercícios</h2>
+                    <p class="text-slate-500 mt-2 max-w-2xl mx-auto">Acesse os guias de exercícios para o uso completo e seguro do equipamento.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Exercício 1</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Primeiro conjunto de exercícios.</p>
+                        <a href="https://drive.google.com/file/d/1snhy_WHLTp3XxpdadQYFTYX4be6Ahi-n/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Exercício</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Exercício 2</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Segundo conjunto de exercícios.</p>
+                        <a href="https://drive.google.com/file/d/1gl5RO7MSekRQcFavG5Lpcoqn0aET4KkZ/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Exercício</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Exercício 3</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Terceiro conjunto de exercícios.</p>
+                        <a href="https://drive.google.com/file/d/1_XdZCNlhQo8B7L4YxnJoR6dCU8Df4N_8/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Exercício</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Exercício 4</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Quarto conjunto de exercícios.</p>
+                        <a href="https://drive.google.com/file/d/1CmJRGuVNKXWo2i0kjAVFKX1hfEdX9rfW/view?usp=drive_link" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Exercício</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-5 info-card flex flex-col border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Exercício 5</h3>
+                        <p class="text-slate-600 text-sm mb-4 flex-grow">Quinto conjunto de exercícios.</p>
+                        <a href="https://drive.google.com/file/d/10REpOWehiDi1Sj3HTM5VJtrUBxgSpsol/view?blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors text-center">Abrir Exercício</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q&A section removed -->
+        </main>
+
+        <footer class="bg-indigo-600 text-white py-6 mt-12">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-indigo-100 mb-2">© 2025 Maca 500Z - Tutoriais e Suporte Técnico</p>
+                <p class="text-indigo-200 text-sm">Todos os direitos reservados</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // All Q&A related JavaScript removed
+        });
+    </script>
+</body>
+</html>
